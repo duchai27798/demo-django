@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <h1>{{ls.name}}</h1>
+    <ul>
+       {% for item in ls.item_set.all %}
+            {% if item.complete == True %}
+                <li>{{item.text}} - Complete</li>
+            {% else %}
+                <li>{{item.text}} - Todo</li>
+            {% endif %}
+       {% endfor %}
+    </ul>
+{% endblock %}
